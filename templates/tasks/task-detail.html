@@ -1,14 +1,24 @@
 <!DOCTYPE html>
-<html>
+{% load static %}
+<html lang="en">
 <head>
-    <title>Task Details</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Detail</title>
+    <link rel="stylesheet" href="{% static 'tasks/detail/styles.css' %}">
 </head>
 <body>
-    <h1>{{ task.task_title }}</h1>
-    <p><strong>Due Date:</strong> {{ task.due_date }}</p>
-    <p>{{ task.description }}</p>
-    <a href="{{ task.get_update_url }}">Edit</a> |
-    <a href="{{ task.get_delete_url }}">Delete</a> |
-    <a href="{% url 'tasks:list' %}">Back to Tasks</a>
+    <div class="detail-container">
+        <h1>Task Detail</h1>
+        <p><span>Task Title:</span> {{ task.tasks_title }}</p>
+        <p><span>Due Date:</span> {{ task.due_date|date:"Y-m-d" }}</p>
+        <p><span>Description:</span> {{ task.description }}</p>
+
+        <div class="action-buttons">
+            <a href="{% url 'tasks:update' task.pk %}" class="btn update-btn">Update</a>
+            <a href="{% url 'tasks:delete' task.pk %}" class="btn delete-btn">Delete</a>
+            <a href="{% url 'tasks:list' %}" class="btn back-btn">Back to List</a>
+        </div>
+    </div>
 </body>
 </html>

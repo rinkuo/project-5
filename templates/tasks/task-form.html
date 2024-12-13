@@ -1,40 +1,27 @@
-{% load static %}
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Task</title>
+    <title>{% if task %}Update Task{% else %}Create Task{% endif %}</title>
     <link rel="stylesheet" href="{% static 'tasks/form/styles.css' %}">
 </head>
 <body>
-    <div class="container">
-        <h1>
-        </h1>
-        <form class="task-form" method="post">
+    <div class="form-container">
+        <h1>{% if task %}Update Task{% else %}Create Task{% endif %}</h1>
+        <form method="POST">
             {% csrf_token %}
+            <label for="tasks_title">Title:</label>
+            <input type="text" name="tasks_title" id="tasks_title" value="{{ task.tasks_title|default:'' }}" required>
 
-            <div class="form-group">
-                <label for="task_title">Task Title</label>
-                <input type="text" id="task_title" name="task_title"
-                       value="{% if task %}{{ task.task_title }}{% endif %}" required>
-            </div>
+            <label for="due_date">Due Date:</label>
+            <input type="date" name="due_date" id="due_date" value="{{ task.due_date|default:'' }}" required>
 
-            <div class="form-group">
-                <label for="due_date">Due Date</label>
-                <input type="date" id="due_date" name="due_date"
-                       value="{% if task %}{{ task.due_date }}{% endif %}" required>
-            </div>
+            <label for="description">Description:</label>
+            <textarea name="description" id="description" required>{{ task.description|default:'' }}</textarea>
 
-            <div class="form-group">
-                <label for="description">Description</label>
-                <textarea id="description" name="description" rows="4" required>{% if task %}{{ task.description }}{% endif %}</textarea>
-            </div>
-
-            <div class="button-group">
-                <button type="submit" class="btn create-task">Save Task</button>
-                <a href="{% url 'tasks:list' %}" class="btn back-to-list">Back to Task List</a>
-            </div>
+            <button type="submit">{% if task %}Update Task{% else %}Create Task{% endif %}</button>
         </form>
     </div>
 </body>
