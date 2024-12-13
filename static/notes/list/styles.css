@@ -1,0 +1,119 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #121212;
+    color: #ffffff;
+    line-height: 2;
+}
+
+header {
+    background-color: #1E90FF;
+    color: white;
+    padding: 20px 10px;
+    text-align: center;
+    border-bottom: 4px solid #104E8B;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+nav {
+    margin: 1px 0;
+    text-align: center;
+}
+
+nav .button-wrapper {
+    display: inline-block;
+    margin: 10px 0;
+}
+
+nav .button {
+    text-decoration: none;
+    color: white;
+    background-color: #1E90FF;
+    padding: 10px 20px;
+    margin: 10px 5px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    display: inline-block;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+nav .button:hover {
+    background-color: #104E8B;
+    transform: translateY(-3px);
+}
+
+main {
+    padding: 20px;
+}
+
+.form-group {
+    margin: 15px 0;
+    text-align: left;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    background-color: #222;
+    color: #fff;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #1E90FF;
+    outline: none;
+}
+
+button {
+    background-color: #1E90FF;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+    background-color: #104E8B;
+    transform: scale(1.05);
+}
+
+button.save {
+    background-color: #28a745;
+}
+
+button.save:hover {
+    background-color: #218838;
+    transform: scale(1.1);
+}
+
+.note-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.note-list li {
+    margin: 10px 0;
+}
+
+.note-list .note-link {
+    text-decoration: none;
+    color: #1E90FF;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.note-list .note-link:hover {
+    color: #104E8B;
+}

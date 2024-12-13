@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task Details</title>
+</head>
+<body>
+    <h1>{{ task.task_title }}</h1>
+    <p><strong>Due Date:</strong> {{ task.due_date }}</p>
+    <p>{{ task.description }}</p>
+    <a href="{{ task.get_update_url }}">Edit</a> |
+    <a href="{{ task.get_delete_url }}">Delete</a> |
+    <a href="{% url 'tasks:list' %}">Back to Tasks</a>
+</body>
+</html>

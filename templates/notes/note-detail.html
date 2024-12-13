@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Note Details</title>
+    <link rel="stylesheet" href="{% static 'notes/detail/styles.css' %}">
+</head>
+<body>
+    <header>
+        <h1>{{ note.note_title }}</h1>
+    </header>
+    <main>
+        <p>{{ note.content }}</p>
+        <div class="note-actions">
+            <a href="{{ note.get_update_url }}" class="button">Edit</a>
+            <a href="{{ note.get_delete_url }}" class="button delete">Delete</a>
+            <a href="{% url 'notes:list' %}" class="button">Back to Notes</a>
+        </div>
+    </main>
+</body>
+</html>

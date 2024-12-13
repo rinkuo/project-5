@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="{% static 'home/styles.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Welcome to the Home Page</h1>
+    </header>
+    <main>
+        <nav>
+            <ul class="nav-list">
+                <li><a href="{% url 'notes:list' %}" class="button">Go to Notes List</a></li>
+                <li><a href="{% url 'tasks:list' %}" class="button">Go to Task List</a></li>
+            </ul>
+        </nav>
+    </main>
+</body>
+</html>

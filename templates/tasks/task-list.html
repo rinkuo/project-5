@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task List</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'tasks/list/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Task List</h1>
+
+        <div class="button-group">
+            <a href="{% url 'tasks:create' %}" class="btn create-task">Create Task</a>
+        </div>
+
+        <ul class="task-list">
+            {% for task in tasks %}
+                <li class="task-item">
+                    <a href="{% url 'tasks:detail' task.id %}" class="task-link">{{ task.task_title|escape }}</a>
+                </li>
+            {% empty %}
+                <li class="no-task">No tasks available. Create one!</li>
+            {% endfor %}
+        </ul>
+
+        <div class="button-group">
+            <a href="{% url 'home' %}" class="btn back-to-home">Back to Home</a>
+        </div>
+    </div>
+</body>
+</html>
